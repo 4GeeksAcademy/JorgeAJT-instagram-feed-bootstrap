@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- Este link es para que funcione bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Este link es para que funcionen los iconos de bootstrap -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Instagram Feed with Bootstrap</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <!-- TITTLE -->
+        <span class="navbar-brand mb-0 h1 flex-grow-1 align-self-start fw-bold"
+          ><i class="fa-brands fa-instagram fw-bold"></i> Instagram</span
+        >
+        <!-- .flex-grow-1 es para alargar este elemento al máximo empujando los otros hacia la derecha -->
+        <!-- BUTTON WITH MODAL -->
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#createPost"
+        >
+          Create a new post
+        </button>
+        <div class="modal" id="createPost">
+          <!-- data-bs-toggle="modal" abre la ventana "modal" y data-bs-target="#createPost" apunta al id mencionado -->
+          <!-- data-bs-target se usa para apuntar a objetos dentro del documento y href para fuera de él generalmente -->
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5 fw-bolder">Create a new post</h1>
+                <!-- fs-5 tamaño y fw-bolder o fw-bold negrita -->
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="caption" class="col-form-label fw-bolder"
+                      >Caption:</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="caption"
+                      placeholder="Add the caption of your post here"
+                    ></textarea>
+                  </div>
+                </form>
+                <button type="button" class="btn btn-light borders">
+                  <i class="fa-solid fa-camera"></i>
+                </button>
+                <button type="button" class="btn btn-light borders ms-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                </button>
+              </div>
+              <div class="modal-footer mt-3">
+                <!-- mt-3 margin-top: 3 -->
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-success">Publish</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DROPDOWN GEAR -->
+        <div class="dropdown p-2">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <!-- .dropdown-menu-end añade las opciones desplegables de forma responsive en función al tamaño de pantalla -->
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Accesibility</a></li>
+            <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- CONTAINER POST -->
+    <div class="container-fluid">
+      <!-- NAVTAB -->
+      <ul class="nav nav-tabs justify-content-center mt-3" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            data-bs-toggle="tab"
+            data-bs-target="#gridMosaicImg"
+            role="tab"
+            aria-controls="grid-mosaic-tab"
+            aria-selected="false"
+          >
+            <i class="bi bi-grid-3x3"></i>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            data-bs-toggle="tab"
+            data-bs-target="#gridOneImg"
+            role="tab"
+            aria-controls="grid-one-tab"
+            aria-selected="true"
+          >
+            <i class="bi bi-square-fill"></i>
+          </button>
+        </li>
+      </ul>
+      <!-- para poner preterminado uno de los dos .active y .show .active en el elemento que sea, ademas aria-selected="true" -->
+      <div class="tab-content">
+        <!-- GRID MOSAIC -->
+        <div
+          class="tab-pane fade"
+          id="gridMosaicImg"
+          role="tabpanel"
+          aria-labelledby="grid-mosaic-tab"
+          tabindex="0"
+        >
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mt-2">
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/2012-03-03 18.56.40.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/cafe aesthetic.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/d63f92a58f1d7c9d391980e020ae12dd_XL.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/GDagdiPWkAEWSSt.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/auroras boreales.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/Michael Jordan the best.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/tommy shelby.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/pexels-markus-spiske-1089438.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+            <div class="col-12 col-md-6 col-xl-4 p-1">
+              <img
+                src="images/descarga.jpg"
+                class="img-rounded img-fluid"
+                alt="Error with the image"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- GRID ONE IMAGE -->
+        <div
+          class="tab-pane fade show active"
+          id="gridOneImg"
+          role="tabpanel"
+          aria-labelledby="grid-one-tab"
+          tabindex="0"
+        >
+          <div class="row d-flex justify-content-center">
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="card mt-4 bg-body-tertiary borders">
+                <div class="d-flex justify-content-between mb-1">
+                  <h5 class="card-title px-2 pt-2 fw-bold">
+                    My cute dog spark!
+                  </h5>
+                  <p class="px-2 pt-1 fontBody">08/26</p>
+                </div>
+                <img
+                  src="images/2012-03-03 18.56.40.jpg"
+                  class="img-top"
+                  alt="Error with the image"
+                />
+                <div class="card-body mb-1 pt-2 ps-2">
+                  <p class="card-text fontBody">
+                    <b>204 Likes</b><br />
+                    This is an example of a very good photo that you can post on
+                    Instagram
+                  </p>
+                </div>
+              </div>
+              <div class="card mt-4 bg-body-tertiary borders">
+                <div class="d-flex justify-content-between mb-1">
+                  <h5 class="card-title px-2 pt-2 fw-bold">
+                    The greatness of Australia
+                  </h5>
+                  <p class="px-2 pt-1 fontBody">04/09</p>
+                </div>
+                <img
+                  src="images/d63f92a58f1d7c9d391980e020ae12dd_XL.jpg"
+                  class="img-top"
+                  alt="Error with the image"
+                />
+                <div class="card-body mb-1 pt-2 ps-2">
+                  <p class="card-text fontBody">
+                    <b>26985 Likes</b><br />
+                    This is an example of a very good photo that you can post on
+                    Instagram
+                  </p>
+                </div>
+              </div>
+              <div class="card mt-4 mb-4 borders">
+                <div class="d-flex justify-content-between mb-1">
+                  <h5 class="card-title px-2 pt-2 fw-bold">
+                    The amazing career of Michael Jordan
+                  </h5>
+                  <p class="px-2 pt-1 fontBody">06/10</p>
+                </div>
+                <img
+                  src="images/Michael Jordan the best.jpg"
+                  class="img-top"
+                  alt="Error with the image"
+                />
+                <div class="card-body mb-1 pt-2 ps-2">
+                  <p class="card-text fontBody">
+                    <b>204 Likes</b><br />
+                    This is an example of a very good photo that you can post on
+                    Instagram
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/d35c03822b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Este script es para hacer que funcione el fontawesome -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Este script es para hacer que funcione el desplegable del dropdown -->
+  </body>
+</html>
